@@ -1,0 +1,366 @@
+:root {
+    --sidebar-bg: #106e2eff;
+    --bg-color: #f3f4f6;
+    --text-dark: #1f2937;
+    --card-green: #00e676;
+    --card-teal: #4db6ac;
+    --card-yellow: #ffeb3b;
+    --card-blue: #29b6f6;
+    --card-red: #ff1744;
+    --card-orange: #ff9100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    /* Penting untuk overlay */
+    overflow-x: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    /* Animasi halus saat mobile */
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.sidebar-header img {
+    width: 40px;
+    height: auto;
+}
+
+.sidebar-header span {
+    margin-left: 10px !important;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b0bec5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left: 4px solid var(--card-yellow);
+}
+
+.nav-links i {
+    width: 20px;
+    text-align: center;
+}
+
+.logout-btn {
+    margin-top: auto;
+    background-color: #e53935;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c62828;
+}
+
+/* --- CONTENT AREA --- */
+.main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 20px 30px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 260px);
+}
+
+/* Header Atas */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Tombol Menu (Hidden di Desktop) */
+.mobile-menu-btn {
+    display: none !important;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: black;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.user-profile i {
+    font-size: 1.5rem;
+}
+
+/* --- STATS GRID --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    padding: 20px;
+    border-radius: 12px;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-card.green {
+    background-color: var(--card-green);
+}
+
+.stat-card.teal {
+    background-color: var(--card-teal);
+}
+
+.stat-card.yellow {
+    background-color: var(--card-yellow);
+}
+
+.stat-card.blue {
+    background-color: var(--card-blue);
+}
+
+.stat-card.red {
+    background-color: var(--card-red);
+    color: white;
+}
+
+.stat-card.orange {
+    background-color: var(--card-orange);
+    color: white;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stat-header i {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* --- CHART SECTION --- */
+.chart-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    /* Agar bisa di-scroll di HP */
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 200px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+    min-width: 600px;
+    /* Pastikan chart tidak gepeng di HP */
+}
+
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.bar {
+    width: 70%;
+    background-color: #9fa8da;
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease;
+}
+
+.bar-label {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: #666;
+    transform: rotate(-45deg);
+    white-space: nowrap;
+}
+
+/* --- OVERLAY GELAP SAAT SIDEBAR MUNCUL DI HP --- */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    display: none;
+    /* Sembunyikan default */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --- RESPONSIVE MEDIA QUERY --- */
+@media (max-width: 1024px) {
+
+    /* 1. Sidebar disembunyikan ke kiri */
+    .sidebar {
+        left: -260px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Class active ditambahkan via JS untuk memunculkan sidebar */
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* 2. Main Content menjadi lebar penuh */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* 3. Header penyesuaian */
+    header {
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+    }
+
+    header h2 {
+        font-size: 1.1rem;
+    }
+
+    .user-profile span {
+        display: none;
+        /* Sembunyikan tulisan 'Admin' di HP biar hemat tempat */
+    }
+
+    /* Tampilkan tombol hamburger */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* 4. Grid Kartu: 1 Kolom ke bawah */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        /* Paksa jadi 1 kolom */
+        gap: 15px;
+    }
+
+    /* 5. Chart Adjustment */
+    .chart-section {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,128 @@
+/* --- RESET & FONT --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #f1f5f9; /* Abu-abu muda */
+    color: #1e293b;
+}
+
+/* --- LAYOUT UTAMA (FLEXBOX) --- */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- SIDEBAR STYLE (ASUMSI ANDA PUNYA FILE SIDEBAR) --- */
+.sidebar {
+    width: 250px;
+    background-color: #064e3b; /* Hijau Gelap */
+    color: white;
+    flex-shrink: 0; /* Agar sidebar tidak mengecil */
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+/* --- KONTEN UTAMA --- */
+.main-content {
+    flex-grow: 1; /* Mengisi sisa ruang */
+    padding: 30px;
+    overflow-x: auto;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-content h2 {
+    color: #064e3b;
+}
+
+/* --- STYLE TABEL MODERN --- */
+.table-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.table-admin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-admin th {
+    background-color: #ecfdf5; /* Hijau pudar */
+    color: #064e3b;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #d1fae5;
+    font-weight: 700;
+}
+
+.table-admin td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.table-admin tr:hover {
+    background-color: #f8fafc;
+}
+
+/* --- TOMBOL AKSI --- */
+.btn-wa {
+    color: #16a34a;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-lihat {
+    background-color: #3b82f6;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.btn-hapus {
+    background-color: #ef4444;
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-hapus:hover {
+    background-color: #dc2626;
+    transform: scale(1.1);
+}
+
+.text-muted {
+    color: #64748b;
+    font-size: 0.85em;
+}

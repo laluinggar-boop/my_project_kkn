@@ -1,0 +1,434 @@
+:root {
+    --sidebar-bg: #106e2eff;
+    --bg-color: #f3f4f6;
+    --text-dark: #1f2937;
+    --card-green: #00e676;
+    --card-teal: #4db6ac;
+    --card-yellow: #ffeb3b;
+    --card-blue: #29b6f6;
+    /* Warna Header Tabel Pesan */
+    --card-red: #ff1744;
+    --card-orange: #ff9100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    /* Penting untuk overlay */
+    overflow-x: hidden;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.sidebar-header img {
+    width: 40px;
+    height: auto;
+}
+
+.sidebar-header span {
+    margin-left: 10px !important;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b0bec5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left: 4px solid var(--card-yellow);
+}
+
+.nav-links i {
+    width: 20px;
+    text-align: center;
+}
+
+.logout-btn {
+    margin-top: auto;
+    background-color: #e53935;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c62828;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    margin-left: 260px;
+    flex-grow: 1;
+    padding: 20px 30px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 260px);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Tombol Menu Mobile */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.user-profile i {
+    font-size: 1.5rem;
+}
+
+/* Content Body */
+.content-body {
+    padding: 25px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-title h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+}
+
+.page-title p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Toolbar & Search */
+.toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-form {
+    flex-grow: 1;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex-grow: 1;
+    position: relative;
+    min-width: 200px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.btn-filter,
+.btn-export {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-filter {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.btn-export {
+    background-color: var(--card-green);
+    border: none;
+    color: white;
+}
+
+.btn-filter:hover {
+    background-color: rgb(243, 242, 242);
+}
+
+.btn-export:hover {
+    background-color: var(--card-blue);
+}
+
+/* Table */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: #333;
+    min-width: 800px;
+}
+
+thead {
+    background-color: var(--card-blue);
+    color: white;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.wa-link {
+    text-decoration: none;
+    color: #25D366;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-hapus {
+    background-color: #ffebee;
+    color: #d32f2f;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-hapus:hover{
+    background-color: rgb(254, 199, 199);
+    color: #ef5350;
+}
+
+.btn-lihat{
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 1024px) {
+
+    /* 1. Sidebar Slide */
+    .sidebar {
+        left: -260px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* 2. Content Full */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* 3. Header Fix */
+    header {
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    header h2 {
+        font-size: 1.1rem;
+    }
+
+    .user-profile .user-name {
+        display: none;
+    }
+
+    /* 4. Toolbar Stacking */
+    .toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-box,
+    .btn-filter,
+    .btn-export {
+        width: 100%;
+    }
+
+    .btn-export {
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .btn-filter {
+        justify-content: center;
+    }
+
+    /* 5. Content Body Padding */
+    .content-body {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,82 @@
+/* --- CSS TOMBOL SEPERTI GAMBAR & DROPDOWN --- */
+
+/* 1. Wadah Utama (Relative) */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* 2. Tombol Utama (Dibuat Persis Seperti Gambar) */
+.btn-daftar-menu {
+    background-color: #74e38c;
+    /* Warna Hijau Terang sesuai gambar */
+    color: #064e3b;
+    /* Warna Teks Hijau Gelap sesuai gambar */
+    padding: 10px 28px;
+    /* Padding disesuaikan agar terlihat penuh */
+    border-radius: 50px;
+    /* Bentuk Lonjong Penuh */
+    border: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    /* Ukuran font sedikit dibesarkan */
+    cursor: pointer;
+    display: inline-block;
+    /* Tidak perlu flex lagi karena tidak ada ikon */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    white-space: nowrap;
+    transition: 0.2s;
+    text-align: center;
+}
+
+/* Efek saat disentuh */
+.btn-daftar-menu:hover {
+    background-color: #5cd676;
+    /* Sedikit lebih terang saat hover */
+}
+
+/* 3. Kotak Menu (Melayang/Absolute) */
+.dropdown-isi {
+    display: none;
+    /* Sembunyi normalnya */
+    position: absolute;
+    /* PENTING: Melayang agar navbar tidak rusak */
+    top: 115%;
+    /* Jarak di bawah tombol */
+    right: 0;
+    /* Rata kanan */
+    background-color: #ffffff;
+    min-width: 170px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 9999;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+/* Munculkan menu saat wadah disentuh */
+.dropdown-wrapper:hover .dropdown-isi {
+    display: block;
+}
+
+/* 4. Style Link di dalam Menu */
+.dropdown-isi a {
+    display: block;
+    padding: 12px 16px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.dropdown-isi a:hover {
+    background-color: #f0fdf4;
+    color: #064e3b;
+}
+
+.dropdown-isi a:last-child {
+    border-bottom: none;
+}
