@@ -1,0 +1,401 @@
+:root {
+    --primary-green: #74e38c;
+    --primary-hover: #5cd676;
+    --dark-green: #0b3b24;
+    --footer-bg: #022c22;
+    --text-grey: #64748b;
+    --bg-gradient-start: #fffbf2;
+    --bg-gradient-mid: #f0fdf4;
+    --bg-gradient-end: #dcfce7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 40%, var(--bg-gradient-end) 100%);
+    color: #1e293b;
+    min-height: 100vh;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    padding-top: 130px;
+}
+
+.container {
+    max-width: 1100px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- NAVBAR --- */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1100px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 100px;
+    padding: 12px 16px 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 0.95rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn-nav-donasi {
+    background-color: var(--primary-green);
+    color: #064e3b;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+    display: block;
+}
+
+.btn-nav-donasi:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-hover);
+}
+
+.mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--dark-green);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-register-link {
+    display: none;
+}
+
+.donation-section {
+    margin-bottom: 80px;
+}
+
+.donation-header {
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.donation-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.donation-header p {
+    font-size: 1.05rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.donation-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.card-heading {
+    font-size: 1.5rem;
+    color: #064e3b;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.bank-info-box {
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.bank-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.bank-name {
+    font-size: 1.1rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.rek-number {
+    font-size: 1.2rem;
+    color: #064e3b;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.rek-owner {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.qris-box {
+    text-align: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 24px;
+}
+
+.qris-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.qris-img-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #e2e8f0;
+    margin: 0 auto;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: 600;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg');
+    background-size: contain;
+}
+
+.calc-desc {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+    transition: border 0.2s;
+}
+
+.calc-input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.amount-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.amt-btn {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.amt-btn:hover {
+    border-color: var(--primary-green);
+    color: var(--dark-green);
+}
+
+.amt-btn.active {
+    background-color: var(--primary-green);
+    color: #064e3b;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.result-box {
+    background-color: #f0fdf4;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.result-text {
+    font-size: 0.95rem;
+    color: #166534;
+    line-height: 1.5;
+}
+
+.calc-note {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.footer {
+    background-color: var(--footer-bg);
+    color: #94a3b8;
+    padding: 25px 0;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+    nav {
+        width: 90%;
+    }
+
+    .btn-nav-donasi {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: none;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #989b9d;
+        font-size: 1rem;
+    }
+
+    .mobile-register-link {
+        display: block;
+        color: var(--primary-green) !important;
+        font-weight: 700 !important;
+    }
+
+    .donation-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .donation-header h1 {
+        font-size: 2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

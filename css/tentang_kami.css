@@ -1,0 +1,504 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-green: #74e38c;
+    --primary-hover: #5cd676;
+    --dark-green: #0b3b24;
+    --footer-bg: #022c22;
+    --text-grey: #64748b;
+    --bg-gradient-start: #fffbf2;
+    --bg-gradient-mid: #f0fdf4;
+    --bg-gradient-end: #dcfce7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 40%, var(--bg-gradient-end) 100%);
+    color: #1e293b;
+    min-height: 100vh;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    padding-top: 130px;
+    /* Sesuaikan dengan tinggi navbar */
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+.container {
+    max-width: 1100px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* =========================================
+   2. ANIMATIONS (Entrance)
+   ========================================= */
+.reveal-element {
+    opacity: 1 !important;
+    /* Paksa muncul */
+    transform: none !important;
+}
+
+.reveal-element.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   3. NAVBAR
+   ========================================= */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1100px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 100px;
+    padding: 12px 16px 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 0.95rem;
+}
+
+.logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* Transisi halus untuk warna & posisi */
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn-nav-donasi {
+    background-color: var(--primary-green);
+    color: #064e3b;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: block;
+    transition: all 0.3s ease;
+    /* Transisi halus background */
+}
+
+.btn-nav-donasi:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(116, 227, 140, 0.4);
+}
+
+.mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--dark-green);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-register-link {
+    display: none;
+}
+
+/* =========================================
+   4. CONTENT (About, History, Visi Misi)
+   ========================================= */
+.about-header {
+    margin-bottom: 60px;
+    max-width: 800px;
+    padding-top: 15px;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.about-header p {
+    font-size: 1.1rem;
+    color: #334155;
+    line-height: 1.7;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.grid-history {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+/* KARTU INFORMASI UMUM */
+.info-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    height: 100%;
+    transition: all 0.3s ease;
+    /* Transisi untuk hover */
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-green);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #065f46;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.card-content {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.mission-list {
+    list-style: disc;
+    padding-left: 20px;
+    color: #475569;
+}
+
+.mission-list li {
+    margin-bottom: 12px;
+}
+
+/* PILAR KEGIATAN */
+.pillar-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+    padding: 8px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.pillar-item:hover {
+    background-color: #f0fdf4;
+}
+
+.pillar-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ecfdf5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    flex-shrink: 0;
+    font-size: 1rem;
+    transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+.pillar-item:hover .pillar-icon {
+    transform: rotate(15deg) scale(1.1);
+    background-color: var(--primary-green);
+    color: #064e3b;
+}
+
+.pillar-text h4 {
+    font-size: 1.1rem;
+    color: #064e3b;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.pillar-text p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* =========================================
+   5. STRUKTUR ORGANISASI (Core Fixes)
+   ========================================= */
+.structure-section {
+    margin-bottom: 100px;
+}
+
+.structure-box {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-heading {
+    font-size: 1.8rem;
+    color: var(--dark-green);
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* CONTAINER GRID (SCROLLABLE) */
+.struktur-grid {
+    display: flex !important;
+    /* Wajib Flexbox */
+    flex-wrap: nowrap !important;
+    /* Wajib agar ke samping, bukan ke bawah */
+    overflow-x: auto;
+    /* Aktifkan scroll horizontal */
+    gap: 20px;
+    padding: 10px 10px 30px 10px;
+    /* Padding bawah besar agar shadow tidak terpotong */
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+/* KARTU ITEM STRUKTUR */
+.struktur-card {
+    min-width: 260px;
+    /* Lebar tetap kartu */
+    width: 260px;
+    flex: 0 0 auto;
+    /* Jangan mengecil (shrink) */
+
+    background: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+
+    transition: all 0.3s ease;
+    /* Transisi Halus */
+}
+
+.struktur-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-green);
+}
+
+/* FOTO PROFIL */
+.foto-wrapper {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #f8fafc;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.struktur-card:hover .foto-wrapper {
+    border-color: var(--primary-green);
+    transform: scale(1.05);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.info-text h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.info-text p {
+    margin: 5px 0 0 0;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.structure-note {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-align: center;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+/* =========================================
+   6. CUSTOM SCROLLBAR (Floating Pill)
+   ========================================= */
+/* Track (Jalur) */
+.struktur-grid::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 15px;
+}
+
+/* Ukuran Scrollbar */
+.struktur-grid::-webkit-scrollbar {
+    height: 10px;
+}
+
+/* Thumb (Batang) - Model Kapsul */
+.struktur-grid::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    /* Trik padding */
+    background-clip: content-box;
+}
+
+.struktur-grid::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-green);
+}
+
+/* =========================================
+   7. FOOTER & RESPONSIVE
+   ========================================= */
+.footer {
+    background-color: var(--footer-bg);
+    color: #94a3b8;
+    padding: 25px 0;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+    nav {
+        width: 90%;
+    }
+
+    .btn-nav-donasi {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: none;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 1rem;
+    }
+
+    .mobile-register-link {
+        display: block;
+        color: var(--primary-green) !important;
+        font-weight: 700 !important;
+    }
+
+    .about-grid,
+    .grid-history {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .structure-box {
+        padding: 30px 20px;
+    }
+}

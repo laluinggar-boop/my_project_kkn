@@ -1,0 +1,5 @@
+const input = document.getElementById('donationInput'); const resultText = document.getElementById('resultText'); const buttons = document.querySelectorAll('.amt-btn'); const COST_PER_MEAL = 50000;
+function updateAmount(amount, btnElement) { input.value = amount; calculateImpact(amount); buttons.forEach(btn => btn.classList.remove('active')); if (btnElement) btnElement.classList.add('active'); }
+function calculateImpact(amount) { let count = Math.floor(amount / COST_PER_MEAL); if (count < 1) { resultText.innerHTML = "Nominal donasi belum mencukupi untuk simulasi paket makan siang."; } else { resultText.innerHTML = `Perkiraan: donasi ini dapat membantu makan siang sekitar <strong>${count} anak</strong>.`; } }
+input.addEventListener('input', (e) => { const val = parseInt(e.target.value) || 0; calculateImpact(val); buttons.forEach(btn => btn.classList.remove('active')); });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
